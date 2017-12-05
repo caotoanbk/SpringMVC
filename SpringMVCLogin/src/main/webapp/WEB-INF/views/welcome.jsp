@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,10 +8,16 @@
 <title>Welcome</title>
 </head>
 <body>
-	<table align="center">
+	<table>
 		<tr>
-			<td><a href="login">Login</a></td>
-			<td><a href="register">Register</a></td>
+			<td>Welcome ${firstname}</td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td><a href="home.jsp">Home</a></td>
 		</tr>
 	</table>
 </body>

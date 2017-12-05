@@ -1,12 +1,30 @@
 package com.me.springmvc.model;
 
+import javax.validation.constraints.Size;
+
 public class User {
 	  private String username;
+	  
+	  @Size(min = 6, message ="Minimum password size is 6")
 	  private String password;
 	  private String firstname;
 	  private String lastname;
 	  private String email;
-	  private String address;
+	  public User(String username, String password, String firstname, String lastname, String email, String address,
+			int phone) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.address = address;
+		this.phone = phone;
+	}
+	  public User() {
+	  }
+	  
+	private String address;
 	  private int phone;
 	  public String getUsername() {
 	  return username;
