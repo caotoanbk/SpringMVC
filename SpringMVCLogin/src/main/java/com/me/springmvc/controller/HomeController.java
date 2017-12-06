@@ -1,41 +1,34 @@
 package com.me.springmvc.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.me.springmvc.model.User;
+
+import com.me.springmvc.model.LoginInfo;
+
 
 @Controller
 public class HomeController{
-	private static final Log log = LogFactory.getLog(HomeController.class.getName());
 	
 	@RequestMapping(value = "/", method= RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		log.info("Welcome home! The client locale is ."+locale);
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate);
+	public String home(ModelMap model) {
+		
+		model.addAttribute("login_info", new LoginInfo("", ""));
 		return "home";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginPage(Locale locale, Model model) {
-		return "login";
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String loginProcess(ModelMap model, @Valid LoginInfo loginInfo, BindingResult result) {
+		if(result.hasErrors()) {
+			return "redirect:/";
+		}
+		return "file-view";
 	}
 	
-	@RequestMapping(value = "/home", method = RequestMethod.POST)
-	public String login(@Validated User user, Model model) {
-		model.addAttribute("userName", user.getFirstname());
-		return "user";
-	}
 }
