@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="container">
-    <h3>Xin chào: {username_fb}</h3>
+    <h3>Xin chào: ${user.last_name} ${user.last_name}</h3>
     <div>Dưới đây là 1 số thông tin cơ bản của bạn:</div>
     <div class="col-md-6" style="padding-left: 0px; padding-top: 2em;">
     <table class="table table-bordered table-striped">
@@ -23,31 +23,31 @@
       <tbody>
         <tr>
           <td>Id</td>
-          <td>{id}</td>
+          <td>${user.id}</td>
         </tr>        
         <tr>
           <td>FirstName</td>
-          <td>{first_name}</td>
+          <td>${user.first_name}</td>
         </tr>
         <tr>
           <td>LastName</td>
-          <td>{last_name}</td>
+          <td>${user.last_name}</td>
         </tr>        
         <tr>
           <td>Gender</td>
-          <td>{gender}</td>
+          <td>${user.gender}</td>
         </tr>
         <tr>
           <td>Birthday</td>
-          <td>{birthday}</td>
+          <td>${user.birthday}</td>
         </tr>        
         <tr>
           <td>Education</td>
-          <td>{education}</td>
+          <td>${user.education}</td>
         </tr>
         <tr>
           <td>Email</td>
-          <td>{email}</td>
+          <td>${user.email}</td>
         </tr>
       </tbody>
     </table>
